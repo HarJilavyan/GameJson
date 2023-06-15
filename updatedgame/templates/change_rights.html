@@ -1,0 +1,29 @@
+@require(path_for)
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Rights</title>
+    <link rel="stylesheet" href="@path_for('static',path='style.css')">
+    <script src="@path_for('static',path='changer_rights.js')"></script>
+</head>
+<header>
+    <div class="header-area">
+        <h1 class="home-btn" onclick="location.href='/home'">Home</h1>
+        <button class="logout-btn" id="home-login-btns" onclick="location.href='/logout'" style="margin: 20px auto;">Logout</button>
+    </div>
+    <hr>
+</header>
+<body>
+    <form onsubmit="return false;" class="container" id="role_form" autocomplete="off">
+        <table id="score-table">
+            <tr>
+                <td><b>Name</b></td>
+                <td><b>Rights</b></td>
+            </tr>
+        </table>
+        <button type = "submit" id="home-login-btns" onclick="sumbitForm()">Submit</button>
+    </form>
+</body>
+</html>
