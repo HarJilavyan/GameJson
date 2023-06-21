@@ -1,0 +1,26 @@
+@require(path_for)
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="@path_for('static',path='style.css')">
+    <title>Json</title>
+</head>
+
+<header>
+    <div class="header-area">
+        <h1 class="home-btn" style="cursor: default; position: relative;">Hello</h1>
+        <button class="logout-btn" id="home-login-btns" onclick="location.href='/logout'" style="margin: 20px auto;">Logout</button>
+    </div>
+    <button class="logout-btn" id="home-login-btns" onclick="location.href='/home'" style="margin: 20px; position: relative;  top: -70px;">Back</button>
+    <hr style="position: relative; top: -70px;">
+</header>
+<body  style="text-align: center;">
+        <h1>Click the button to run a Python script:</h1>
+        <input id="files" type="file" name="file">
+        <button id="home-login-btns" class="run" onclick="RunScript()">Run Script</button>
+    <script src="@path_for('static',path='json_run_script.js')"></script>
+</body>
+</html>
