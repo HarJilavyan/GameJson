@@ -1,0 +1,65 @@
+@require(path_for, right, login, requests)
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Rights</title>
+    <link rel="stylesheet" href="@path_for('static',path='style.css')">
+</head>
+<header>
+    <div class="header-area">
+        <h1 class="home-btn" onclick="location.href='/home'">Home</h1>
+        <button class="logout-btn" id="home-login-btns" onclick="location.href='/logout'" style="margin: 20px auto;">Logout</button>
+    </div>
+    <hr>
+</header>
+<body>
+    <form onsubmit="return false;" class="container" id="role_form" autocomplete="off">
+        <table id="score-table">
+            <tr>
+                <td><b>Name</b></td>
+                <td><b>Rights</b></td>
+                <td><b>Requested Role</b></td>
+            </tr>
+            @for i in range(len(right)):
+            <tr id="data-tr"><td id="logins@str(i)">@right[i][0]</td><td id="td@str(i)">
+                <input type="checkbox" id="admin@str(i)" value="admin">
+                @if right[i][1] == "admin" or "admin" in right[i][1]:
+                    <script>document.getElementById("admin@str(i)").setAttribute("checked","")
+                    </script>
+                @endif
+                <label for="checkbox">Admin</label>
+                <input type="checkbox" id="gamer@str(i)" value="gamer">
+                @if right[i][1] == "gamer" or "gamer" in right[i][1]:
+                    <script>document.getElementById("gamer@str(i)").setAttribute("checked","")
+                    </script>
+                @endif
+                <label for="checkbox">Gamer</label>
+                <input type="checkbox" id="super@str(i)" value="super">
+                @if right[i][1] == "super":
+                    <script>document.getElementById("super@str(i)").setAttribute("checked","")
+                    </script>
+                @endif
+                <label for="checkbox">Super</label>
+            </td>
+            <td>
+                <div>
+                    <p id="requestedrole@str(i)" class="@str(requests[i][0])">
+                        @str(requests[i][0]).capitalize()
+                    </p>
+                
+                    @if requests[i][0] != None:
+                        <button id="approve@str(i)">&#9989;</button>
+                        <button id="deny@str(i)">&#10060;</button>
+                    @endif
+                </div>
+            </td>
+        </tr>
+            @endfor
+        </table>
+        <button type="submit" id="submit-btn">Submit</button>
+    </form>
+    <script src="@path_for('static',path='changer_rights.js')"></script>
+</body>
+</html>
